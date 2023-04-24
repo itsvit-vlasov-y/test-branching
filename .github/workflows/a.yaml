@@ -1,0 +1,19 @@
+name: A
+run-name: A
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: 'Custom development commit'
+        default: ''
+        type: string
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    name: Create new release branch
+    steps:
+      - name: Checkout
+        run: |-
+          echo ${{ inputs.commit }}

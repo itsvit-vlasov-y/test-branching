@@ -1,0 +1,19 @@
+name: B
+run-name: B
+
+on:
+  workflow_dispatch:
+    inputs:
+      test:
+        description: 'Test value'
+        default: ''
+        type: string
+
+jobs:
+  beta:
+    runs-on: ubuntu-latest
+    name: Test step
+    steps:
+      - name: Checkout
+        run: |-
+          echo ${{ inputs.test }}
