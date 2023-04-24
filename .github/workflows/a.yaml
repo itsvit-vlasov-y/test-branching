@@ -2,18 +2,25 @@ name: A
 run-name: A
 
 on:
-  workflow_dispatch:
-    inputs:
-      commit:
-        description: 'Custom development commit'
-        default: ''
-        type: string
+  push:
+    branches:
+      - main
 
 jobs:
-  prepare:
+  development:
     runs-on: ubuntu-latest
-    name: Create new release branch
+    name: Deploy Development
+    environment: Development
     steps:
       - name: Checkout
         run: |-
-          echo ${{ inputs.commit }}
+          echo Deployment
+
+  staging:
+    runs-on: ubuntu-latest
+    name: Deploy Staging
+    environment: Staging
+    steps:
+      - name: Checkout
+        run: |-
+          echo Staging
