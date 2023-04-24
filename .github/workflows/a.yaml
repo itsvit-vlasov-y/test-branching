@@ -20,6 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy Staging
     environment: Staging
+    needs: development
     steps:
       - name: Checkout
         run: |-
